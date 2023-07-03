@@ -6,20 +6,15 @@ class Orden:
         self._id_orden = Orden.contador_ordenes
         self._computadoras = list(computadoras)
 
-    @property
-    def id_orden(self):
-        return self._id_orden
-    
-    @id_orden.setter
-    def id_orden(self, id_orden):
-        self._id_orden = id_orden
-
-    def agregarComputadora(self, computadora):
+    def agregar_computadora(self, computadora):
         self._computadoras.append(computadora)
 
     def __str__(self):
+        computadora_str = ''
         for computadora in self._computadoras:
-            print(computadora)
+            computadora_str += computadora.__str__()
 
-
-orden1 = Orden()
+        return f'''
+            Orden: {self._id_orden}
+            Computadora: {computadora_str}
+        '''
